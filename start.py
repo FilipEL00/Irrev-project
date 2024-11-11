@@ -99,11 +99,6 @@ for Molecule in Mixtures.keys():
     # Calculate thermodynamic data and put it into the dictionary
     # To exctract the residual entropies for different pressures for Mixture[0] with temperature T: Calculated_data[Mixture[0]]["res_entropy"][T]
     for T in T_values:
-        #print("NEW TEMPERATURE")
-        test, = eos.specific_volume(T, 1000, Mixtures[Molecule], eos.VAPPH)
-        testcond = kin.thermal_conductivity(T, test, [0.5, 0.5], N=2)
-        #print(test)
-        #print(testcond)
         i = 0
         for p in pressure:
             flsh = eos.two_phase_tpflash(T, p, [1])
